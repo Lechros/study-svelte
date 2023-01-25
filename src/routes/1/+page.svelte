@@ -8,3 +8,14 @@
 <img src={src} alt='{name} dances.'>
 <!-- shorthand attributes: name and value are the same -->
 <img {src} alt='{name} dances.'>
+
+<p>This is a paragraph.</p>
+
+<!-- styling: scoped to component (.svelte file) -->
+<style>
+    p {
+        color: purple;
+        font-family: 'Comic Sans MS', cursive;
+        font-size: 2em;
+    }
+</style>
