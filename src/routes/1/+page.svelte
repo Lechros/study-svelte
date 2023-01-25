@@ -1,6 +1,7 @@
 <script>
     let name = 'svelte';
     let src = '/tutorial/image.gif';
+    import Nested from './Nested.svelte';
 </script>
 
 <h1>Hello {name.toUpperCase()}!</h1>
@@ -10,6 +11,7 @@
 <img {src} alt='{name} dances.'>
 
 <p>This is a paragraph.</p>
+<Nested/>
 
 <!-- styling: scoped to component (.svelte file) -->
 <style>
