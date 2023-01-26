@@ -12,6 +12,20 @@
 		{ id: 'z_AbfPXTKms', name: 'Maru' },
 		{ id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
 	];
+
+    import Thing from './Thing.svelte';
+
+	let things = [
+		{ id: 1, name: 'apple' },
+		{ id: 2, name: 'banana' },
+		{ id: 3, name: 'carrot' },
+		{ id: 4, name: 'doughnut' },
+		{ id: 5, name: 'egg' },
+	];
+
+	function handleClick() {
+		things = things.slice(1);
+	}
 </script>
 
 <!-- conditionally render markup (still adds indentation level T^T) -->
@@ -55,3 +69,14 @@
         </a></li>
     {/each}
 </ul>
+
+<button on:click={handleClick}>
+	Remove first thing
+</button>
+
+<!-- specify key for blocks (key goes in (...)) -->
+<!-- similar to react but svelte sets default key (maybe index?) instead of showing console error -->
+<!-- maybe svelte try to reuse components for performance? -->
+{#each things as thing (thing.id)}
+	<Thing name={thing.name}/>
+{/each}
