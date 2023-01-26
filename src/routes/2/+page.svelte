@@ -19,6 +19,20 @@
         // reactive on assignment
         count += 1;
     }
+
+    let numbers = [1, 2, 3, 4];
+
+    function addNumber() {
+        // this doesn't trigger update...
+        numbers.push(numbers.length + 1);
+        // need to assign to `numbers`
+        numbers = numbers;
+    }
+
+    // this will trigger update since left side is reactive variable
+    // numbers[numbers.length] = numbers.length + 1;
+
+    $: sum = numbers.reduce((t, n) => t + n, 0);
 </script>
 
 <button on:click={incrementCount}>
@@ -26,3 +40,7 @@
 </button>
 
 <p>{count} doubled is {doubled}</p>
+
+<p>{numbers.join(' + ')} = {sum}</p>
+
+<button on:click={addNumber}>Add a number</button>
