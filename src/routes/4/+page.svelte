@@ -26,8 +26,24 @@
 	function handleClick() {
 		things = things.slice(1);
 	}
-</script>
 
+    async function getRandomNumber() {
+		const res = await fetch(`/tutorial/random-number`);
+		const text = await res.text();
+
+		if (res.ok) {
+			return text;
+		} else {
+			throw new Error(text);
+		}
+	}
+
+	let promise = getRandomNumber();
+
+	function handleClick2() {
+		promise = getRandomNumber();
+	}
+</script>
 <!-- conditionally render markup (still adds indentation level T^T) -->
 <!--
     # block start tag
@@ -80,3 +96,15 @@
 {#each things as thing (thing.id)}
 	<Thing name={thing.name}/>
 {/each}
+
+<button on:click={handleClick2}>
+	generate random number
+</button>
+
+{#await promise}
+    <p>{promise}</p>
+{:then number}
+    <p>The number is {number}</p>
+{:catch error}
+    <p style="color: red">{error.message}</p>
+{/await}
