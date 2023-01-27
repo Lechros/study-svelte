@@ -21,6 +21,8 @@
     }
 
     import Outer from "./Outer.svelte";
+
+    import CustomButton from "./CustomButton.svelte";
 </script>
 
 <!-- inline event handler: free syntax highlighting, no performance hit -->
@@ -50,6 +52,8 @@
 <Inner on:message={handleMessage}/>
 
 <Outer on:message={handleMessage}/>
+
+<CustomButton on:click={() => alert('Button Clicked')}/>
 
 <style>
     div {
