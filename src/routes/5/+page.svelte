@@ -13,6 +13,12 @@
     function handleClick() {
         alert('no more alerts');
     }
+
+    import Inner from './Inner.svelte';
+
+    function handleMessage(event) {
+        alert(event.detail.text);
+    }
 </script>
 
 <!-- inline event handler: free syntax highlighting, no performance hit -->
@@ -37,6 +43,9 @@
 <button on:click|once={handleClick}>
     Click me
 </button>
+
+<!-- custom event name 'message' -->
+<Inner on:message={handleMessage}/>
 
 <style>
     div {
