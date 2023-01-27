@@ -8,7 +8,8 @@
     }
 </script>
 
-<div on:mousemove={handleMousemove}>
+<!-- inline event handler: free syntax highlighting, no performance hit -->
+<div on:mousemove={e => m = { x: e.clientX, y: e.clientY }}>
     The mouse position is {m.x} x {m.y}
 </div>
 
