@@ -19,6 +19,8 @@
     function handleMessage(event) {
         alert(event.detail.text);
     }
+
+    import Outer from "./Outer.svelte";
 </script>
 
 <!-- inline event handler: free syntax highlighting, no performance hit -->
@@ -46,6 +48,8 @@
 
 <!-- custom event name 'message' -->
 <Inner on:message={handleMessage}/>
+
+<Outer on:message={handleMessage}/>
 
 <style>
     div {
