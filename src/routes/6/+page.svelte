@@ -19,6 +19,9 @@
         'Mint choc chip',
         'Raspberry ripple'
     ];
+
+	import { marked } from 'marked';
+	let value = `Some words are *italic*, some are **bold**`;
 </script>
 
 <!--
@@ -45,11 +48,6 @@
 </label>
 
 <p>{a} + {b} = {a + b}</p>
-
-<style>
-	label { display: flex }
-	input, p { margin: 6px }
-</style>
 
 <label>
 	<input type=checkbox bind:checked={yes}>
@@ -102,3 +100,14 @@
 		of {join(flavours)}
 	</p>
 {/if}
+
+<!-- marked: markdown parser -->
+{@html marked(value)}
+
+<textarea bind:value={value}></textarea>
+
+<style>
+	label { display: flex }
+	input, p { margin: 6px }
+	textarea { width: 100%; height: 200px; }
+</style>
