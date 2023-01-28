@@ -97,6 +97,14 @@
 
 <h2>Flavours</h2>
 
+<select multiple bind:value={flavours}>
+	{#each menu as flavour}
+		<option value={flavour}>
+			{flavour}
+		</option>
+	{/each}
+</select>
+
 {#each menu as flavour}
     <label>
 		<input type=checkbox bind:group={flavours} name="flavours" value={flavour}>
