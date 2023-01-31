@@ -58,6 +58,8 @@
 	let time;
 	let duration;
 	let paused;
+
+	let w, h;
 </script>
 
 <!--
@@ -211,6 +213,21 @@
 	bind:paused
 	<track kind="captions">
 </video>
+
+<br>
+<br>
+<br>
+
+<p>Size: {w}px x {h}px</p>
+
+<!--
+	clientWidth/clientHeight is readonly
+	`display: inline` elements and elements that can't contain other elements
+	cannot be measured with this property (measure wrapper instead)
+-->
+<div bind:clientWidth={w} bind:clientHeight={h}>
+	<span style="font-size: 42px">edit me</span>
+</div>
 
 <style>
 	label { display: flex }
