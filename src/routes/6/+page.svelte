@@ -103,9 +103,12 @@
 	let pin;
 	$: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
 
-	function handleSubmit() {
+	function handleSubmit3() {
 		alert(`submitted ${pin}`);
 	}
+
+	import InputField from './InputField.svelte';
+	let field;
 </script>
 
 <!--
@@ -286,7 +289,13 @@
 <h1 style="color: {pin ? '#333' : '#ccc'}">{view}</h1>
 
 <!-- bind to component exported variable -->
-<Keypad bind:value={pin} on:submit={handleSubmit}/>
+<Keypad bind:value={pin} on:submit={handleSubmit3}/>
+
+<InputField bind:this={field} />
+
+<button on:click="{() => field.focus()}">
+	Focus field
+</button>
 
 <style>
 	label { display: flex }
