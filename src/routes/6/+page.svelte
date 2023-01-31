@@ -54,6 +54,10 @@
 	}
 
 	$: remaining = todos.filter(t => !t.done).length;
+
+	let time;
+	let duration;
+	let paused;
 </script>
 
 <!--
@@ -200,6 +204,13 @@
 <button on:click={clear}>
 	Clear completed
 </button>
+
+<video>
+	bind:currentTime={time}
+	bind:duration
+	bind:paused
+	<track kind="captions">
+</video>
 
 <style>
 	label { display: flex }
