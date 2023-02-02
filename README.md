@@ -1,5 +1,7 @@
 # Study svelte
 
+https://svelte.dev/tutorial/basics
+
 ## Index
 
 1. Introduction
