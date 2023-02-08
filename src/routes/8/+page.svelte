@@ -1,5 +1,7 @@
 <script>
-	import WritableStores from "./writable-stores.svelte";
+	import ReadableStores from "./readable-stores.svelte";
+    import WritableStores from "./writable-stores.svelte";
 
 </script>
 <WritableStores/>
+<ReadableStores/>
